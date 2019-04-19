@@ -1,0 +1,13 @@
+
+
+{%for v in vagas%}
+   {%if v.status == True%}
+    <br>
+        {{v.titulo}} <br>
+        {{v.salario}} <br>
+        {{v.tipo_contrato}} <br>
+        {{v.empresa}} <br>
+        {{v.requisitos}} <br>
+    {%endif%}
+{%endfor%}
+
