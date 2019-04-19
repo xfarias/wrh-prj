@@ -1,6 +1,6 @@
 
-
-{%for v in vagas%}
+<!-- lista geral de vagas -->
+{%for v in vaga%}
    {%if v.status == True%}
     <br>
         {{v.titulo}} <br>
@@ -10,4 +10,35 @@
         {{v.requisitos}} <br>
     {%endif%}
 {%endfor%}
+
+<br>
+
+<!-- empresa por vaga -->
+{%for ve in vagaempresa%}
+    {{ve.empresa__nome}}
+    {{ve.count}}
+    <br>
+{%endfor%}
+<br>
+Vagas CLT:<br>
+{%for clt in vagaclt %}
+    {{clt.titulo}}
+    {{clt.count}}
+ <br>
+{%endfor%}
+
+<br>
+Vagas PJ <br>
+{%for pj in vagapj %}
+    {{pj.titulo}}
+    {{pj.count}}
+ <br>
+{%endfor%}
+
+
+
+
+
+
+
 
