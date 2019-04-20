@@ -7,7 +7,6 @@ from django.db.models import Count
 def index(request):
 
     vaga = Vaga.objects.all().order_by('salario')
-
     vagaempresa = Vaga.objects.all(
     ).order_by('empresa').values(
         'empresa__nome'

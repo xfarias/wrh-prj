@@ -1,4 +1,6 @@
-
+{% extends 'layout.html' %}
+{% load staticfiles %}
+{% block content %}
 <!-- lista geral de vagas -->
 {%for v in vaga%}
    {%if v.status == True%}
@@ -39,6 +41,6 @@ Vagas PJ <br>
 
 
 
-
+{% endblock %}
 
 
