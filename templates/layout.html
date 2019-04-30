@@ -18,14 +18,23 @@
      <script src="{% static 'js/picker.date.js' %}"></script>
     <meta name="theme-color" content="#fafafa">
     <style type="text/css">
-            .row{border:1px solid black;}
-            .row-button-base{background-color:white; border:1px solid black; border-radius: 25px; font-size:12px; width:120px; height:40px;}
+
+            .row-button-base{background-color:white;  border-radius: 25px; font-size:12px; width:120px; height:40px;}
             .row-img{height:130px;}
             .row-objects{height:70px;}
             .row-title-1{height:120px;}
             .row-title-2{height:90px;}
             .row-buttons{height:80px;}
             .row-social{height:60px;}
+            .row-menu{width:300px; float:right;}
+            .row-menu li{width:100px; float:left;  list-style:none; margin-top:20px;  font-size:14px;}
+            .img-fnd{background-image: url({%static 'img/fnd.png'%});
+             background-repeat: no-repeat;background-size:100%; bottom: 0; color: black; left: 0; overflow: auto;
+             padding: 3em;top: 0;background-size: cover;}
+            .footer-menu{height:100px;}
+
+
+
 
     </style>
 
@@ -34,25 +43,33 @@
 </head>
 
 
-<body class="container" style="background-color:#f7f7f7">
-      <header>
-          <div class="row">
-              <div class="col-sm-12 col-md-4 col-lg-4" style="border:1px solid black">
-                  <div class="row-img">
-                      <img src="{% static 'img/logo.png'%}" alt="logo"  class="img-fluid" />
-                      <img src="{% static 'img/triangulo_logo.png'%}" alt="logo"  class="img-fluid" style="position:relative; top:10px; left:10px;" />
-                  </div>
-                  <div class="row-objects">
+<body  style="background-color:#f7f7f7">
+    <div class="container">
+         <header >
+              <div class="row">
+                  <div class="col-sm-12 col-md-4 col-lg-4">
+
+                      <div class="row-img mt-5">
+                          <img src="{% static 'img/logo.png'%}" alt="logo"  class="img-fluid" />
+                          <img src="{% static 'img/triangulo_logo.png'%}" alt="logo"  class="img-fluid" style="position:relative; top:10px; left:10px;" />
+                      </div>
+
+                      <div class="row-objects">
+
                          <img src="{% static 'img/objects.png'%}" alt="logo"  class="img-fluid" />
-                  </div>
+
+                      </div>
                   <div class="row-content-container">
                       <div class="row-title-1">
-                        <h1> Job Management Made Easy!</h1>
+                            <h1> Job Management Made Easy!</h1>
                        </div>
+
                       <div class="row-title-2">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, minima!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, minima!</p>
                        </div>
+
                       <div class="row-buttons">
+
                         <button class="row-button-base" href="#" style="background-color:#8065ff; color:white; border:1px solid white;">SIGNUP FREE</button>
                         <button class="row-button-base" href="#" style="color:#8065ff; border:1px solid white;">WATCH VIDEO</button>
                       </div>
@@ -60,22 +77,76 @@
                       <span class="fa fa-twitter" style="color:blue;"> Share on Twitter</span>
                       <span class="fa fa-facebook" style="margin-left:20px; color:blue;">  Share on Facebook</span>
                     </div>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, sed</p>
-
+                      <p>80,000+ users all over the world are already using fieldmagic and creating amazing outcomes.</p>
                   </div>
               </div>
-              <div class="col-sm-12 col-md-8 col-lg-8" style="border:1px solid black">a</div>
-          </div>
+              <div class="col-sm-12 col-md-8 col-lg-8 img-fnd">
+                  <nav>
+                        <ul class="row-menu">
+                            <li><a href="#"  style="color:white; ">LOG IN</a></li>
+                            <li><a href="#" style="color:white; border:1px solid white; padding:12px;   border-radius:20px; ">REGISTER</a></li>
+                        </ul>
+                    </nav>
+              </div>
       </header>
 
-     {% block content %}{% endblock content %}
 
-    <footer>
-        <hr>
-        <div>
+       <main style="margin:0 auto;">
+
+           <div class="container">
+               <div class="row">
+                    <img src="{% static 'img/objects.png'%}" alt="logo"  class="img-fluid" style="margin:0 auto; margin-top:3ç0px;" />
+               </div>
+                 <div class="row" style=" margin:0 auto; ">
+
+                            <div class="up">
+                                    {%for v in vaga%}
+                                        {%if v.status == True%}
+                                            <div class="card" style=" border:1px solid black;width: 300px; height:200px; float:left; margin-left:44px; margin-top:40px;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{v.titulo}} - {{v.empresa}} </h5>
+                                                    <h6 class="card-subtitle mb-2 text-muted">{{v.salario}}</h6>
+                                                    <p class="card-text"> {{v.requisitos}} </p>
+                                                    <a href="#" class="card-link">Continuar Lendo...</a>
+                                                </div>
+                                            </div>
+                                        {%endif%}
+                                    {%endfor%}
+
+                            </div>
+                    </div>
 
         </div>
-    </footer>
+            <br style="clear:both;">
+        </main>
+    </div>
+
+
+
+
+        <footer style="background-color:#33334f;">
+          <div class="container">
+             <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12 mt-2" >
+                    <img src="{% static 'img/logo_footer.png'%}" alt="logo"  class="img-fluid" />
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-sm-12 col-md-9 col-lg-9" >
+                    <p style="color:#767ead; font-weight: 100; float:left; font-family: Myriad Pro;" >&copy; 2019  Todos os direitos reservados.</p>
+                </div>
+                 <div class="col-sm-12 col-md-3 col-lg-3" style="float:left;">
+                    <ul>
+                    <li style="float:left;list-style: none;width:50px;"><a href="#" style="color:#767ead;" class="fa fa-facebook"></a></li>
+                    <li style="float:left; list-style: none; width:50px;"><a href="#"  style="color:#767ead;"class="fa fa-twitter"></a></li>
+                    <li style="float:left; list-style: none; width:50px;"><a href="#" style="color:#767ead;"class="fa fa-instagram"></a></li>
+                    <li style="float:left; list-style: none; width:50px;"><a href="#" style="color:#767ead;" class="fa fa-youtube"></a></li>
+                    </ul>
+                 </div>
+            </div>
+          </div>
+        </footer>
 
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
     <!--<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>-->
@@ -83,12 +154,6 @@
   <script src="{% static 'js/plugins.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async defer></script>
 </body>
 
 </html>

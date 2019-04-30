@@ -1,21 +1,32 @@
 {% extends 'layout.html' %}
 {% load staticfiles %}
 {% block content %}
-<!-- lista geral de vagas -->
-{%for v in vaga%}
-   {%if v.status == True%}
-    <br>
+<!-- lista geral de vagas
+     <br>
         {{v.titulo}} <br>
         {{v.salario}} <br>
         {{v.tipo_contrato}} <br>
         {{v.empresa}} <br>
         {{v.requisitos}} <br>
-    {%endif%}
-{%endfor%}
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <br>
 
-<!-- empresa por vaga -->
+<!-- empresa por vaga
 {%for ve in vagaempresa%}
     {{ve.empresa__nome}}
     {{ve.count}}
@@ -38,8 +49,7 @@ Vagas PJ <br>
 {%endfor%}
 
 
-
-
+-->
 
 {% endblock %}
 
