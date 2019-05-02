@@ -32,6 +32,7 @@
     {{ve.count}}
     <br>
 {%endfor%}
+
 <br>
 Vagas CLT:<br>
 {%for clt in vagaclt %}
@@ -54,3 +55,18 @@ Vagas PJ <br>
 {% endblock %}
 
 
+                     {%for ve in vagaempresa%}
+                             {{ve.empresa__nome}}
+                             {{ve.count}}
+                        {%endfor%}
+                   <br>
+                        {%for clt in vagaclt %}
+                            {{clt.titulo}}
+                            {{clt.count}}
+                        {%endfor%}
+                   <br>
+                        {%for pj in vagapj %}
+                            {{pj.titulo}}
+                            {{pj.count}}
+
+                         {%endfor%}

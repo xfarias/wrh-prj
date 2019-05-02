@@ -137,7 +137,8 @@
 
       return prefix;
     },
-    getSelectorFromElement: function getSelectorFromElement(element) {
+
+        getSelectorFromElement: function getSelectorFromElement(element) {
       var selector = element.getAttribute('data-target');
 
       if (!selector || selector === '#') {
@@ -145,12 +146,10 @@
         selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : '';
       }
 
-      try {
-        return document.querySelector(selector) ? selector : null;
-      } catch (err) {
-        return null;
-      }
+      return selector && document.querySelector(selector) ? selector : null;
     },
+
+
     getTransitionDurationFromElement: function getTransitionDurationFromElement(element) {
       if (!element) {
         return 0;

@@ -9,13 +9,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,900" rel="stylesheet">
     <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
+    <!-- Place favicon.ico in the root directory
 
-     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-     <script src="{% static 'js/picker.js' %}"></script>
-     <script src="{% static 'js/picker.date.js' %}"></script>
+          <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+     -->
+
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <meta name="theme-color" content="#fafafa">
     <style type="text/css">
 
@@ -33,15 +41,8 @@
              padding: 3em;top: 0;background-size: cover;}
             .footer-menu{height:100px;}
 
-
-
-
     </style>
-
-
-
 </head>
-
 
 <body  style="background-color:#f7f7f7">
     <div class="container">
@@ -95,8 +96,49 @@
 
            <div class="container">
                <div class="row">
-                    <img src="{% static 'img/objects.png'%}" alt="logo"  class="img-fluid" style="margin:0 auto; margin-top:3ç0px;" />
+                    <img src="{% static 'img/objects.png'%}" alt="logo"  class="img-fluid" style="margin:0 auto; margin-top:30px;" />
                </div>
+
+               <div class="row" style="margin: 0 auto; margin-left:44px; margin-top:15px;">
+                   <p>
+                       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="true" aria-controls="collapseExample1"> Vagas por Empresa</button>
+                       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="true" aria-controls="collapseExample2"> Vagas CLT</button>
+                       <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="true" aria-controls="collapseExample3"> Vagas PJ</button>
+                    </p>
+                    <div class="collapse.show" style=" width:990px;" id="collapseExample1" >
+
+                        <div class="card card-body">
+                            {%for ve in vagaempresa%}
+                             {{ve.empresa__nome}}:
+                             {{ve.count}}
+                            <br>
+                            {%endfor%}
+                    </div>
+                   </div>
+
+                   <div class="collapse"  style="width:990px;" id="collapseExample2">
+                        <div class="card card-body">
+                        {%for clt in vagaclt %}
+                            {{clt.titulo}}:
+                            {{clt.count}}
+                            <br>
+                        {%endfor%}
+
+                    </div>
+                   </div>
+
+                   <div class="collapse" style="width:990px;" id="collapseExample3">
+                        <div class="card card-body">
+                            {%for pj in vagapj %}
+                            {{pj.titulo}}:
+                            {{pj.count}}
+                            <br>
+                         {%endfor%}
+                    </div>
+                   </div>
+                </div>
+
+
                  <div class="row" style=" margin:0 auto; ">
 
                             <div class="up">
