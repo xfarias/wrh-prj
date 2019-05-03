@@ -6361,7 +6361,7 @@ S2.define('jquery.select2',[
   'jquery',
   'jquery-mousewheel',
 
-  './select2/app',
+  './select2/core',
   './select2/defaults'
 ], function ($, _, Select2, Defaults) {
   if ($.fn.select2 == null) {

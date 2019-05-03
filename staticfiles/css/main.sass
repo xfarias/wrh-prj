@@ -1,0 +1,750 @@
+@import breakpoint
+@import fontFamily
+
+
+/* =============================================
+ *	Responsive Settings
+ * =============================================
+
+$xs-height: ( height-min: 615px )
+$height: ( height-min: 800px,  width-max: 599px )
+$vh: ( height-max: 790px )
+
+$xxs: ( max:  449px )
+$xs: ( max:  450px )
+$sm: ( min:  451px )
+$md: ( min:  600px )
+$lg: ( min: 800px )
+$xl: ( min: 1000px )
+$xxl: ( min: 1200px )
+$xxxl: ( min: 1400px )
+
+$til-xl: ( max: 1600px )
+$til-lg: ( max: 980px )
+$til-md: ( max: 760px )
+$til-sm: ( max: 580px )
+$til-xsm: ( max: 400px )
+
+$xxs-to-sm: ( min: map-get($sm, min), max: map-get($md, min) - 1 )
+$md-only: ( min: map-get($md, min), max: map-get($lg, min) - 1 )
+$lg-only: ( min: map-get($lg, min), max: map-get($xl, min) - 1 )
+$xl-only: ( min: map-get($xl, min), max: map-get($xxl, min) - 1 )
+$xxs-to-lg: ( min: 0, max: map-get($lg, min) - 1 )
+$xxs-to-sm: ( min: 0, max: map-get($sm, min) - 1 )
+$lg-to-xxl: ( min: map-get($lg, min), max: map-get($xxl, min) - 1 )
+$sm-to-md: ( min: map-get($sm, min), max: map-get($md, min) - 1 )
+$sm-to-lg: ( min: map-get($sm, min), max: map-get($lg, min) - 1 )
+
+/* =============================================
+ *	Design Variables
+ * =============================================
+
+$font-color: #8d8d8d
+$green: #20c25b
+$yellow: #fdca40
+
+/* =============================================
+ *	Design
+ * =============================================
+
+html,
+body
+	background: #fff
+
+	font-family: 'Open Sans', sans-serif
+	font-size: 16px
+	color: $font-color
+	-webkit-font-smoothing: antialiased
+	-moz-osx-font-smoothing: grayscale
+	-webkit-overflow-scrolling: touch
+	position: relative
+	letter-spacing: -0.009em
+	overflow-x: hidden
+
+strong
+	font-weight: 800
+
+.hidden
+	overflow: hidden
+	position: fixed
+	top: 0
+	left: 0
+	right: 0
+	bottom: 0
+
+.container
+	width: 82.8125%
+	max-width: 1950px
+	margin: 0 auto
+
+	+breakpoint($til-lg)
+		width: 90%
+
+	&.first
+		position: relative
+		top: auto
+		left: auto
+		margin-bottom: 50px
+
+		+breakpoint($til-sm)
+			margin-bottom: 20px
+
+.sandwitch
+	display: none
+
+	.icon
+		color: #fff
+		display: inline-block
+		text-align: right
+		position: relative
+		top: 5px
+
+		.bar1, .bar2, .bar3
+			width: 25px
+			height: 2px
+			background-color: $green
+			margin: 6px 0
+			transition: 0.3s ease-out
+
+		&.opened
+
+
+			.bar1
+				-webkit-transform: rotate(-45deg) translate(-2px, 6px)
+				transform: rotate(-45deg) translate(-2px, 6px)
+			.bar2
+				opacity: 0
+			.bar3
+				-webkit-transform: rotate(45deg) translate(-6px, -9px)
+				transform: rotate(45deg) translate(-5px, -9px)
+
+	+breakpoint($xxs-to-lg)
+		display: block
+		position: relative
+		z-index: 9999999
+		float: right
+
+
+.opened
+	.sandwitch
+		position: fixed
+		right: 40px
+		top: 40px
+
+.menu-full
+	transform: translate(0,100%)
+	opacity: 0
+	position: fixed
+	width: 100%
+	height: 100%
+	background-color: #4c4c4c
+	z-index: 999999
+	color: #fff
+
+	box-sizing: border-box
+	padding: 40px
+	-webkit-transition: transform 0s linear .2s, opacity .2s ease-in-out
+	-moz-transition: transform 0s linear .2s, opacity .2s ease-in-out
+	-ms-transition: transform 0s linear .2s, opacity .2s ease-in-out
+	-o-transition: transform 0s linear .2s, opacity .2s ease-in-out
+	transition: transform 0s linear .2s, opacity .2s ease-in-out
+
+	.sac
+		line-height: 22px
+		margin-bottom: 40px
+		display: inline-block
+		position: relative
+		top: -6px
+
+		li
+			color: #fff
+
+		i
+			color: #fff
+			margin-right: 10px
+
+			&:last-of-type
+				font-size: 14px
+
+	a
+		color: #fff
+		font-size: 19px
+		margin-bottom: 20px
+		display: block
+
+	&.opened
+		transform: translate(0,0)
+		opacity: 1
+		-webkit-transition: opacity .2s ease-in-out
+		-moz-transition: opacity .2s ease-in-out
+		-ms-transition: opacity .2s ease-in-out
+		-o-transition: opacity .2s ease-in-out
+		transition: opacity .2s ease-in-out
+
+
+
+header
+	margin: 60px 0 60px 0
+	display: flex
+	justify-content: space-between
+	position: relative
+	z-index: 9999
+
+	+breakpoint($til-lg)
+		margin: 60px 0 50px 0
+
+	+breakpoint($til-xsm)
+		margin: 40px 0 46px 0
+
+	img
+		width: 150px
+
+		+breakpoint($til-xsm)
+			width: 125px
+
+	ul
+		display: inline-block
+		width: auto
+		line-height: 58px
+		font-size: 16px
+		font-weight: 600
+		color: $green
+		letter-spacing: -0.023em
+
+		+breakpoint($til-md)
+			display: none
+
+		li
+			list-style: none
+			display: inline-block
+			margin-left: 40px
+
+			a,
+			a:visited,
+			a:hover
+				color: #20c25b
+
+
+.row
+	display: inline-flex
+	//white-space: nowrap
+
+.button,
+.section-title
+	line-height: 48px
+	border-radius: 40px
+	display: inline-block
+	padding: 0 30px 0 30px
+	color: #fff
+	text-transform: uppercase
+	font-weight: 700
+	font-size: 14px
+	letter-spacing: -0.023em
+	transition: background-color 0.2s ease-in-out
+
+	&.yellow
+		background-color: $yellow
+
+	&.green
+		background-color: $green
+		color: #fff
+
+.button
+	cursor: pointer
+
+	&:hover
+		background-color: #ffbd0a
+
+.section-title
+	color: #969696
+	padding: 0
+	margin-bottom: 20px
+	display: inline-block
+
+	+breakpoint($til-sm)
+		text-align: center
+		width: 100%
+		margin-bottom: 5px
+
+a
+	text-decoration: none
+	opacity: 1
+	transition: opacity .2s ease-in-out
+
+	&:hover
+		opacity: .9
+
+	&:visited,
+	&:active
+		text-decoration: none
+
+.headline
+	margin-top: 20px
+	position: relative
+	z-index: 10
+
+	+breakpoint($til-md)
+		display: block !important
+
+	&.row
+		+breakpoint($til-md)
+			margin-bottom: 30px
+
+	.title
+		font-family: 'Axiforma', sans-serif
+		color: $yellow !important
+		font-size: 50px
+		line-height: 55px
+		letter-spacing: -0.065em
+		width: 45%
+
+		+breakpoint($til-md)
+			width: 100%
+			display: inline-block
+			text-align: center
+			font-size: 60px
+			line-height: 60px
+
+		+breakpoint($til-sm)
+			font-size: 40px
+			line-height: 40px
+
+	.description
+		width: 55%
+		line-height: 30px
+		padding-left: 50px
+
+		+breakpoint($til-md)
+			width: 100%
+			padding: 0
+			display: inline-block
+			text-align: center
+			margin-top: 20px
+
+		p
+			margin-bottom: 44px
+
+			+breakpoint($til-xsm)
+				font-size: 13px
+				line-height: 22px
+				margin-bottom: 30px
+
+h1
+	font-family: 'Axiforma', sans-serif
+	color: $yellow
+	font-size: 35px
+	line-height: 35px
+	letter-spacing: -0.065em
+
+p
+	+breakpoint($til-md)
+		text-align: center
+
+.curve,
+.curve-bottom
+	border-bottom-right-radius: 100%
+	border-bottom-left-radius: 100%
+	background-color: #fff
+	position: absolute
+	left: -20px
+	right: -20px
+	height: 164px
+	display: inline-block
+	transform: translateY(-140px) scaleX(1.2)
+	z-index: 1
+
+.curve-bottom
+	border-top-right-radius: 100%
+	border-top-left-radius: 100%
+	transform: translateY(-140px) scaleX(1.2)
+
+.results-container
+	background-color: #f7f7f7
+	padding: 150px 0 150px 0
+	transform: translateY(-50px)
+	z-index: 0
+	position: relative
+
+	+breakpoint($til-md)
+		padding-top: 135px
+
+.results
+	width: 100%
+	position: relative
+	flex-wrap: wrap
+
+.filter
+	width: auto
+	float: right
+	display: flex
+	overflow: hidden
+	border-radius: 50px
+	border: 1px solid $green
+
+	+breakpoint($til-sm)
+		margin-bottom: 40px
+		width: 100%
+		text-align: center
+
+	span
+		line-height: 40px
+		padding: 0 20px 0 20px
+		border-right: 1px solid $green
+		display: inline-block
+		width: 100%
+		color: $green
+		font-weight: 600
+		cursor: pointer
+
+		&:last-of-type
+			border: 0
+
+	.selected
+		background-color: $green
+		color: #fff
+
+ul
+	li
+		list-style: none
+
+
+.results-table,
+.animals-table
+	display: flex
+	width: 100%
+	flex-wrap: wrap
+	position: relative
+
+	.row
+		flex-wrap: nowrap
+		float: right
+		width: calc(80% - 30px)
+		color: #5a5a5a
+
+	.column
+		width: 12.5%
+		text-transform: uppercase
+		font-size: 14px
+		width: 100%
+
+		&.head
+			width: 20%
+			position: relative
+			margin-right: 30px
+			height: 100%
+			float: left
+			text-transform: none
+
+			+breakpoint($til-sm)
+				//position: absolute
+				//top: 0
+				width: 100%
+				position: relative
+				margin: 0 0 10px
+
+			.name
+				position: absolute
+				font-size: 112px
+				font-weight: 600
+				bottom: -35px
+				color: #ebebeb
+				letter-spacing: -0.065em
+				line-height: 112px
+				transition: color 0.2s ease-in-out
+
+				+breakpoint($til-sm)
+					position: relative
+					bottom: unset
+
+
+			.time
+				position: absolute
+				right: 0
+				bottom: 20px
+				background-color: #bcbcbc
+				line-height: 23px
+				font-size: 13px
+				padding: 0 6px 0 6px
+				border-radius: 5px
+				color: #fff
+				font-weight: 800
+				letter-spacing: -0.04em
+
+				+breakpoint($til-sm)
+					bottom: 10px
+
+		strong
+			display: block
+			width: 100%
+			font-weight: 800
+			font-size: 16px
+
+
+	.super-milhar
+		width: calc(80% - 30px)
+		margin-left: calc(20% + 30px)
+		position: absolute
+		bottom: 22px
+		flex-wrap: nowrap
+		display: flex
+		font-weight: 800
+		color: $green
+
+		+breakpoint($til-sm)
+			margin: 0
+			width: 100%
+			position: relative
+			bottom: auto
+			margin-top: 15px
+			flex-wrap: wrap
+			justify-content: center
+
+		.title
+			width: 200%
+
+	.result
+		border-bottom: 2px solid #e9e9e9
+		width: 100%
+		overflow: hidden
+		min-height: 105px
+		position: relative
+		margin-bottom: 30px
+
+		+breakpoint($til-sm)
+			display: flex
+			flex-wrap: wrap
+			height: 100%
+			padding-bottom: 15px
+
+		.row
+			+breakpoint($til-sm)
+				width: 100%
+				display: flex
+				flex-wrap: wrap
+
+		.column
+			+breakpoint($til-sm)
+				flex: none
+				width: 25%
+				display: block
+				margin-bottom: 10px
+
+			&.head
+				flex: 1
+
+		&.rio
+			.head
+				.name
+					left: -10px
+
+		.head
+			.name
+				+breakpoint($til-sm)
+					font-size: 90px
+					line-height: 90px
+
+		&:hover
+			.name
+				color: #dedfde
+
+h1
+	margin-bottom: 40px
+
+	+breakpoint($til-md)
+		text-align: center !important
+		margin-bottom: 30px
+
+.animals-numbers
+	z-index: 999
+	position: relative
+	transform: translateY(-30px)
+	text-align: center
+
+	+breakpoint($til-sm)
+		transform: translateY(-60px)
+
+	.show-more
+		margin-top: 30px
+
+		&.closed
+			span
+				&:first-of-type
+					display: inline-block
+				&:last-of-type
+					display: none
+
+		&.opened
+			span
+				&:first-of-type
+					display: none
+				&:last-of-type
+					display: inline-block
+
+
+	.animals-table
+		justify-content: space-between
+
+		&.closed
+			max-height: 30vh
+			overflow: hidden
+
+			&::after
+				content: ''
+				position: absolute
+				bottom: 0
+				left: 0
+				right: 0
+				height: 100px
+				display: inline-block
+				background: rgba(255,255,255, 0.9)
+				background: -moz-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 85%)
+				background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 85%)
+				background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 85%)
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 )
+
+
+		+breakpoint($til-lg)
+			justify-content: space-around
+
+		.animal
+			display: flex
+			margin-bottom: 25px
+			text-align: left
+
+
+			h3
+				font-size: 18px
+				font-weight: 600
+				margin-bottom: 6px
+				margin-top: 6px
+
+			.icon
+				text-align: center
+				width: 72px
+				height: 72px
+				position: relative
+				margin-right: 10px
+
+				img
+					height: 72px
+
+			.number
+				width: 28px
+				height: 28px
+				text-align: center
+				line-height: 28px
+				display: inline-block
+				border-radius: 50%
+				border: 2px solid #f2f2f2
+				font-size: 13px
+				font-weight: 800
+				margin-right: 5px
+				transition: color 0.2s ease-in-out, border 0.2s ease-in-out
+
+			&:hover
+				cursor: default
+
+				.number
+					color: $green
+					//border-color: $green
+
+
+hr
+	margin: 30px 0 80px 0
+	height: 2px
+	background-color: #f2f2f2
+	border: 0
+
+	+breakpoint($til-md)
+		margin: 4px 0 61px 0
+
+.how-it-works
+	margin-bottom: 100px
+	display: inline-block
+
+	.group-1
+		width: calc(60% - 100px)
+		margin-right: 100px
+		float: left
+
+		+breakpoint($til-lg)
+			width: calc(60% - 50px)
+			margin-right: 50px
+
+		+breakpoint($til-md)
+			width: 100%
+			margin: 0
+			float: unset
+
+	.group-2
+		width: 40%
+		float: left
+
+		+breakpoint($til-md)
+			width: 100%
+			margin: 0
+			margin-top: 50px
+			float: unset
+
+	p
+		margin-bottom: 30px
+		display: inline-block
+
+.table
+	.row
+		border-bottom: 2px solid #f2f2f2
+		width: 100%
+		display: flex
+		flex-wrap: nowrap
+		padding: 20px 0 20px 0
+		justify-content: space-between
+		transition: border 0.2s ease-in-out
+
+		&:first-child
+			border: 0
+			padding-bottom: 0
+			font-weight: 800
+
+	.column
+		width: 100%
+
+	.type
+		width: 150%
+
+
+footer
+	border-top: 2px solid #f2f2f2
+	padding: 30px 0 30px 0
+
+.green
+	color: $green
+
+.logo-raaw
+	height: 15px
+	float: right
+
+.inside
+	.headline
+		width: 100%
+		text-align: center
+
+		.column
+			width: 100%
+
+.select-date
+	padding: 0 20px 0 20px
+	border: 1px solid $green
+	line-height: 40px
+	font-weight: 600
+	background-color: #fff
+	border-radius: 50px
+	overflow: hidden
+	display: inline-block
+	text-align: center
+	width: 150px
+
+	+breakpoint($til-sm)
+		margin-bottom: 40px
+		display: block
+		width: auto
+		text-align: center

@@ -29,5 +29,7 @@ def index(request):
         'vagaclt': vagaclt,
         'vagapj': vagapj,
 
-
 })
+
+def admin(request):
+    return render(request, '')
