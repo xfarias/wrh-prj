@@ -1,0 +1,10 @@
+@mixin breakpoint($map) {
+  $query: "";
+  @if map-has-key($map, min) { $query: append($query, "(min-width: #{map-get($map, min)})") }
+  @if map-has-key($map, min) and map-has-key($map, max) { $query: append($query, "and") }
+  @if map-has-key($map, max) { $query: append($query, "(max-width: #{map-get($map, max)})") }
+  @if map-has-key($map, height-max) { $query: append($query, "(max-height: #{map-get($map, height-max)})") }
+  @if map-has-key($map, height-min) { $query: append($query, "(min-height: #{map-get($map, height-min)})") }
+  @if map-has-key($map, height-min) and map-has-key($map, width-max) { $query: append($query, "(min-height: #{map-get($map, height-min)}) and (max-width: #{map-get($map, width-max)})") }
+  @media screen and #{$query} { @content; }
+}

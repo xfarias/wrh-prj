@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- lista geral de vagas
+     <br>
+        {{v.titulo}} <br>
+        {{v.salario}} <br>
+        {{v.tipo_contrato}} <br>
+        {{v.empresa}} <br>
+        {{v.requisitos}} <br>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+<!-- empresa por vaga
+{%for ve in vagaempresa%}
+    {{ve.empresa__nome}}
+    {{ve.count}}
+    <br>
+{%endfor%}
+
+<br>
+Vagas CLT:<br>
+{%for clt in vagaclt %}
+    {{clt.titulo}}
+    {{clt.count}}
+ <br>
+{%endfor%}
+
+<br>
+Vagas PJ <br>
+{%for pj in vagapj %}
+    {{pj.titulo}}
+    {{pj.count}}
+ <br>
+{%endfor%}
+
+
+-->
+
+{% endblock %}
+
+
+                     {%for ve in vagaempresa%}
+                             {{ve.empresa__nome}}
+                             {{ve.count}}
+                        {%endfor%}
+                   <br>
+                        {%for clt in vagaclt %}
+                            {{clt.titulo}}
+                            {{clt.count}}
+                        {%endfor%}
+                   <br>
+                        {%for pj in vagapj %}
+                            {{pj.titulo}}
+                            {{pj.count}}
+
+                         {%endfor%}

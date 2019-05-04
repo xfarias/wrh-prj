@@ -39,7 +39,7 @@ class Empresa(models.Model):
 class Requisitos(models.Model):
     requisitos_especificos = models.TextField(null=False, verbose_name="Requisitos Específicos")
     requisitos_gerais = models.TextField(null=False, verbose_name="Requisitos Gerais")
-    empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.requisitos_especificos
